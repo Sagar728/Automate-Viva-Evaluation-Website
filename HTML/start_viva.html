@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Question Generator</title>
+<style>
+    /* Body background color */
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Container styles */
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    }
+
+    /* Form styles */
+    form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #4CAF50; /* Green */
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+    /* Random question display */
+    #randomQuestion {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+:root {
+  --primary-color: #356aff;
+  --bg-color: #fff;
+  --text-color: #000;
+  --light-text-color: #a5a5a5;
+  --body-bg-color: #f5f5f5;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-bg-color);
+  color: var(--text-color);
+}
+.container {
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(227, 223, 223);
+  box-shadow: 0 0 30px 0 rgb(179, 238, 143); 
+
+}
+.container .heading {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.container .options select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--light-text-color);
+  border-radius: 5px;
+  outline: none;
+}
+.container .options div:not(:last-child) select {
+  margin-bottom: 20px;
+}
+
+.container .options p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--light-text-color);
+}
+.container .line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-text-color);
+  opacity: 0.5;
+  margin: 30px 0;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  height: 60px;
+  padding: 20px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--primary-color);
+}
+.btn ion-icon {
+  font-size: 30px;
+}
+.btn:disabled {
+  background-color: var(--light-text-color);
+  cursor: not-allowed;
+}
+.container .record img {
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+.container .record.recording img {
+  display: block;
+}
+.container .record.recording ion-icon {
+  display: none;
+}
+.container .result {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  border: 1px solid var(--light-text-color);
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+.container .result p {
+  display: inline;
+  margin-left: 3px;
+  color: var(--light-text-color);
+}
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure the video stays behind other content */
+    object-fit: cover; /* Cover the entire viewport */
+    opacity: 2;
+  }
+
+  /* Additional styling for content */
+  .content {
+    position: relative;
+    z-index: 1; /* Place content above the video */
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+  }
+
+
+  #v
+{
+    position: absolute;
+    left: 0px;
+    top:50px;
+    font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(79, 148, 19, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+
+
+</style>
+</head>
+<body>
+
+  <li id="v">ALL THE BEST !!!!</li>
+
+  <video id="background-video" autoplay muted loop>
+    <source src="video6.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+<div class="container">
+    <h1>Your Question</h1><br>
+    <form id="questionForm" method="POST">
+        <label for="branch">Branch:</label><br>
+        <input type="text" id="branch" name="branch" required><br><br>
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" required><br><br>
+        <button type="button" id="nextButton">Next</button>
+    </form>
+    <div id="randomQuestion"></div>
+</div>
+
+<div class="container">
+    <p class="heading">Speech to Text</p>
+    <div class="options">
+        <div class="language">
+            <p>Language</p>
+            <select name="input-language" id="language"></select>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="line"></div>
+    <button class="btn record">
+        <div class="icon">
+            <ion-icon name="mic-outline"></ion-icon>
+            <img src="bars.svg" alt="" />
+        </div>
+        <p>Start Listening</p>
+    </button>
+
+    <form id="questionForm" action="start_viva.php" method="POST" enctype="multipart/form-data" >
+    <p class="heading">Result :</p>
+    <div class="result"
+        spellcheck="false"
+        placeholder="Text will be shown here"
+       
+    >
+        <p class="interim"></p>
+    </div>
+
+    
+        
+        <br> <input type="text" id="branch" name="id" placeholder="Enter your id" required><br>
+         
+        
+
+          <input type="text" id="branch" name="branch" placeholder="Enter your branch" required><br>
+         
+         <input type="text" id="subject" name="subject" placeholder="Enter your subject " required> <br>
+
+         <input type="text" id="subject" name="result" placeholder="Enter your result " required>
+
+         
+          <h4>Upload Image</h4>
+          
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="file" name="IMAGE" accept=".jpg, .jpeg, .png">
+              <br><br>
+         <!--     <button type="submit" name="submit">Upload Image</button> -->
+          
+      
+         
+    
+
+    <div class="buttons">
+        <button class="btn clear">
+            <ion-icon name="trash-outline"></ion-icon>
+            <p>Clear</p>
+        </button>
+        <!-- Replace download button with submit button -->
+        <button class="btn submit" name="submit" type="submit" >
+            <ion-icon name="cloud-upload-outline"></ion-icon>
+            <p>Submit</p> 
+        </button>
+    </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <!-- IONICONS -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+
+  <!-- LANGUAGES -->
+  <script src="languages.js"></script>
+
+<script>
+    const recordBtn = document.querySelector(".record"),
+  result = document.querySelector(".result"),
+  downloadBtn = document.querySelector(".download"),
+  inputLanguage = document.querySelector("#language"),
+  clearBtn = document.querySelector(".clear");
+
+let SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition,
+  recognition,
+  recording = false;
+
+function populateLanguages() {
+  languages.forEach((lang) => {
+    const option = document.createElement("option");
+    option.value = lang.code;
+    option.innerHTML = lang.name;
+    inputLanguage.appendChild(option);
+  });
+}
+
+populateLanguages();
+
+function speechToText() {
+  try {
+    recognition = new SpeechRecognition();
+    recognition.lang = inputLanguage.value;
+    recognition.interimResults = true;
+    recordBtn.classList.add("recording");
+    recordBtn.querySelector("p").innerHTML = "Listening...";
+    recognition.start();
+    recognition.onresult = (event) => {
+      const speechResult = event.results[0][0].transcript;
+      //detect when intrim results
+      if (event.results[0].isFinal) {
+        result.innerHTML += " " + speechResult;
+        result.querySelector("p").remove();
+      } else {
+        //creative p with class interim if not already there
+        if (!document.querySelector(".interim")) {
+          const interim = document.createElement("p");
+          interim.classList.add("interim");
+          result.appendChild(interim);
+        }
+        //update the interim p with the speech result
+        document.querySelector(".interim").innerHTML = " " + speechResult;
+      }
+      downloadBtn.disabled = false;
+    };
+    recognition.onspeechend = () => {
+      speechToText();
+    };
+    recognition.onerror = (event) => {
+      stopRecording();
+      if (event.error === "no-speech") {
+        alert("No speech was detected. Stopping...");
+      } else if (event.error === "audio-capture") {
+        alert(
+          "No microphone was found. Ensure that a microphone is installed."
+        );
+      } else if (event.error === "not-allowed") {
+        alert("Permission to use microphone is blocked.");
+      } else if (event.error === "aborted") {
+        alert("Listening Stopped.");
+      } else {
+        alert("Error occurred in recognition: " + event.error);
+      }
+    };
+  } catch (error) {
+    recording = false;
+
+    console.log(error);
+  }
+}
+
+recordBtn.addEventListener("click", () => {
+  if (!recording) {
+    speechToText();
+    recording = true;
+  } else {
+    stopRecording();
+  }
+});
+
+function stopRecording() {
+  recognition.stop();
+  recordBtn.querySelector("p").innerHTML = "Start Listening";
+  recordBtn.classList.remove("recording");
+  recording = false;
+}
+
+
+
+function submitText() {
+    const text = result.innerText;
+    // Here you would perform the action of submitting the text, for example, sending it to a server.
+    console.log("Text submitted:", text);
+}
+document.querySelector('.submit').addEventListener("click", submitText);
+
+clearBtn.addEventListener("click", () => {
+  result.innerHTML = "";
+  downloadBtn.disabled = true;
+});
+
+</script>
+
+<script>
+document.getElementById('nextButton').addEventListener('click', function() {
+    var branch = document.getElementById('branch').value;
+    var subject = document.getElementById('subject').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'check.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById('randomQuestion').innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send('branch=' + branch + '&subject=' + subject);
+});
+</script>
+</body>
+</html>

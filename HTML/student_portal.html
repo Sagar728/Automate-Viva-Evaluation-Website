@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viva Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+<style>
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  h1 {
+    color: #333;
+  }
+  p {
+    color: #555;
+  }
+  .instruction {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  .instruction i {
+    width: 30px;
+    font-size: 20px; /* Adjust size as needed */
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    padding: 10px; /* Add padding for a rounded look */
+    border-radius: 50%; /* Make the icon circular */
+  }
+  #startVivaBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none;
+  }
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+  #startVivaBtn:hover {
+    background-color: #75787b;
+    
+
+  }
+  #agreeCheckbox {
+    display: none;
+  }
+  #agreeLabel {
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+  }
+  #agreeCheckbox:checked ~ #startVivaBtn {
+    display: block;
+  }
+  img
+{
+
+width: 10%;
+height: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+
+}
+
+#v
+{
+    position: absolute;
+    left: 350px;
+    font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2.3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(1, 149, 67, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+nav
+{
+  position: absolute;
+  top: 0px;
+}
+
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure the video stays behind other content */
+    object-fit: cover; /* Cover the entire viewport */
+  }
+
+  /* Additional styling for content */
+  .content {
+    position: relative;
+    z-index: 1; /* Place content above the video */
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+  }
+
+  .material-icons
+  {
+    position: absolute;
+    top: 10px;
+    left: 1100px;
+    border: 2px solid white;
+    border-radius: 30px;
+  }
+
+  .material-icons:hover
+  {
+    position: absolute;
+    top: 10px;
+    left: 1100px;
+    border: 2px solid rgb(241, 23, 23);
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+<body>
+
+
+  
+  <video id="background-video" autoplay muted loop>
+    <source src="video7.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <nav>
+    <div class="nav-bar">
+        <i class='bx bx-menu sidebarOpen'></i>
+        <span class="logo navLogo"><a href="#"><img src="1c.png" alt=""></a></span> 
+        <div class="menu">
+            <div class="logo-toggle">
+                <span class="logo"><a href="#">CodingLab</a></span>
+                <i class='bx bx-x siderbarClose'></i>
+            </div>
+            <ul class="nav-links">
+               
+                <li id="v">VIVA-EVAL </li>
+                <i class="material-icons" style="font-size:48px;color:rgb(245, 244, 242)">place</i> 
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+  <h1>Welcome to Your Viva</h1>
+  <div class="instruction">
+    <i class="fas fa-volume-up"></i>
+    <p>Make sure you are in a quiet environment.</p>
+  </div>
+  <div class="instruction">
+    <i class="fas fa-microphone"></i>
+    <p>Ensure your microphone and camera are working properly.</p>
+  </div>
+  <div class="instruction">
+    <i class="fas fa-book"></i>
+    <p>Prepare to answer questions related to your topic.</p>
+  </div>
+  <div class="instruction">
+    <i class="fas fa-comments"></i>
+    <p>Be confident and articulate in your responses.</p>
+  </div>
+  <div class="instruction">
+    <i class="fas fa-eye"></i>
+    <p>Remember to maintain eye contact with the camera.</p>
+  </div>
+  
+
+  
+  <input type="checkbox" id="agreeCheckbox">
+  <label for="agreeCheckbox" id="agreeLabel">I agree to the terms and conditions</label>
+  
+  <center>
+    <button id="startVivaBtn"><a href="start_viva.html">Start Viva</a></button> 
+  </center>
+</div>
+
+<script>
+  document.getElementById('agreeCheckbox').addEventListener('click', function() {
+    var startVivaBtn = document.getElementById('startVivaBtn');
+    startVivaBtn.disabled = !this.checked;
+    if (this.checked) {
+      startVivaBtn.style.display = 'block';
+    } else {
+      startVivaBtn.style.display = 'none';
+    }
+  });
+</script>
+
+<link rel="stylesheet" href="script.js">
+
+</body>
+</html>

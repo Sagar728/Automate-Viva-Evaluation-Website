@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login & Registration Form</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!---Custom CSS File--->
+  <style>
+    /* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  min-height: 100vh;
+  width: 100%;
+  background: #b4ebe1;
+}
+.container{
+  position: absolute;
+  top: 48.7%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
+  width: 100%;
+  background: #c9c7c7;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.container .registration{
+  display: none;
+}
+#check:checked ~ .registration{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+}
+#check{
+  display: none;
+}
+.container .form{
+  padding: 2rem;
+}
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+ .form input{
+   height: 32px;
+   width: 100%;
+   padding: 0 15px;
+   font-size: 17px;
+   margin-bottom: 1.3rem;
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   outline: none;
+ }
+ .form input:focus{
+   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+ }
+.form a{
+  font-size: 16px;
+  color: #009579;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form input.button{
+  color: #fff;
+  background: #009579;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.form input.button:hover{
+  background: #006653;
+}
+.signup{
+  font-size: 17px;
+  text-align: center;
+}
+.signup label{
+  color: #009579;
+  cursor: pointer;
+}
+.signup label:hover{
+  text-decoration: underline;
+}
+
+
+#h{
+    color: #eff3f4;
+}
+
+img
+{
+
+width: 10%;
+height: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+
+}
+
+#v
+{
+    position: absolute;
+    left: 750px;
+    font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2.3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(1, 149, 67, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+
+
+  #background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure the video stays behind other content */
+    object-fit: cover; /* Cover the entire viewport */
+    opacity: 2;
+  }
+
+  /* Additional styling for content */
+  .content {
+    position: relative;
+    z-index: 1; /* Place content above the video */
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+  }
+
+  .footer1
+{
+    position: absolute;
+  bottom: 0;  
+  left: 0;
+  right: 0;
+  padding: 1.3rem;
+  background: rgb(43, 48, 46);
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  
+  border: 2px solid rgb(238, 176, 176);
+
+}
+
+
+.footer1:hover
+{
+    position: absolute;
+  bottom: 0;  
+  left: 0;
+  right: 0;
+  padding: 1.3rem;
+  background: rgb(166, 226, 203);
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  
+  border: 2px solid rgb(241, 159, 159);
+
+} 
+
+
+  </style>
+</head>
+<body>
+
+
+   
+
+    <video id="background-video" autoplay muted loop>
+    <source src="video3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+<nav>
+    <div class="nav-bar">
+        <i id="pp" class='bx bx-menu sidebarOpen' ></i>
+        <span class="logo navLogo"><a href="#"><img src="1c.png" alt=""></a></span> 
+        <div class="menu">
+            <div class="logo-toggle">
+                <span class="logo"><a href="#">CodingLab</a></span>
+                <i id="pp" class='bx bx-x siderbarClose'></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="demo.html"><i  id="h"class="fas fa-home"></i>&nbsp;Home</a></li> 
+                <li><a href="about.html"><i id="h" class="fas fa-user"></i>&nbsp;About</a></li>
+                
+                <li><a href="services.html"><i id="h" class="fas fa-cog"></i>&nbsp;Services</a></li>
+                <li><a href="contact.html"><i id="h" class="fas fa-envelope"></i>&nbsp;Contact</a></li>
+
+                <li id="v">VIVA-EVAL </li>
+                
+            </ul>
+        </div>
+        <div class="darkLight-searchBox">
+            <div class="dark-light">
+                <i id="pp" class='bx bx-moon moon'></i>
+                <i id="pp" class='bx bx-sun sun'></i>
+            </div>
+            <div class="searchBox">
+               <div class="searchToggle">
+                <i id="pp" class='bx bx-x cancel'></i>
+                <i id="pp" class='bx bx-search search'></i>
+               </div>
+                <div class="search-field">
+                    <input type="text" placeholder="Search...">
+                    <i id="pp" class='bx bx-search'></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form action="student_login.php" method="post">
+        <input type="text" placeholder="Enter your email" name="email" required>
+        <input type="text" placeholder="Enter your password"  name="password" required>
+        <a href="#">Forgot password?</a>
+        <input type="submit" name="submit" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check">Signup</label>
+        </span>
+      </div>
+    </div>
+
+
+    
+    <div class="registration form">
+      <header>Signup</header>
+      
+      <form action="student_sign.php" method="POST">
+        <input type="text" name=" name" placeholder="Enter Your Name"   required>
+        <input type="text" name=" college" placeholder="Enter Your College Name"  required>
+        <input type="text" name=" branch" placeholder="Enter Your Branch (IT-Information Technology)"  required>
+        <input type="text" name=" uid" placeholder="Enter Your UID"  required>
+        <input type="text" name=" email" placeholder="Enter your Email"  required>
+        <input type="text" name=" password" placeholder="Enter Your Password"  required>
+        <input type="submit" class="button" value="Signup" name="submit">
+      </form>
+      
+      <div class="signup">
+        <span class="signup">Already have an account?
+         <label for="check">Login</label>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer1">&copy;<span id="year"> </span><span> 2024 VIVA PROCTORE. All rights reserved.</span></div>
+
+    <link rel="stylesheet" href="script.js">
+</body>
+</html>
+

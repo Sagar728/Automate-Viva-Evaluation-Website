@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Automatic Viva Evaluation Software</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="about.css"> -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:#fcfcfc;
+      color:black;
+    }
+
+    header {
+      background-color: #5fc9f3;
+      padding: 20px;
+      text-align: center;
+      color:white;
+    }
+    header :hover{
+      color:#333;
+      transition:0.5sec;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    section:hover {
+      background-color: #f9f9f9;
+      }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-right: 10px;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    #background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure the video stays behind other content */
+    object-fit: cover; /* Cover the entire viewport */
+  }
+
+  /* Additional styling for content */
+  .content {
+    position: relative;
+    z-index: 1; /* Place content above the video */
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+  }
+
+  #h{
+    color: #eff3f4;
+}
+
+img
+{
+
+width: 10%;
+height: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+
+}
+
+#v
+{
+    position: absolute;
+    left: 750px;
+    font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2.3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(1, 149, 67, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <video id="background-video" autoplay muted loop>
+    <source src="video4.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+
+    <nav>
+        <div class="nav-bar">
+            <i id="pp" class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="#"><img src="1c.png" alt=""></a></span> 
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">CodingLab</a></span>
+                    <i id="pp" class='bx bx-x siderbarClose'></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="demo.html"><i  id="h"class="fas fa-home"></i>&nbsp;Home</a></li> 
+                    <li><a href="about.html"><i id="h" class="fas fa-user"></i>&nbsp;About</a></li>
+                    
+                    <li><a href="services.html"><i id="h" class="fas fa-cog"></i>&nbsp;Services</a></li>
+                    <li><a href="contact.html"><i id="h" class="fas fa-envelope"></i>&nbsp;Contact</a></li>
+
+                    <li id="v">VIVA-EVAL </li>
+                    
+                </ul>
+            </div>
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i id="pp" class='bx bx-moon moon'></i>
+                    <i id="pp" class='bx bx-sun sun'></i>
+                </div>
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i id="pp" class='bx bx-x cancel'></i>
+                    <i id="pp" class='bx bx-search search'></i>
+                   </div>
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i id="pp" class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+  <header>
+    
+    <h1>About Automatic Viva Evaluation Software</h1>
+  </header>
+  <main>
+    <section style="background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+      <h2><i class="icon fas fa-cogs"></i>Introduction</h2>
+      <p>The automatic viva evaluation software is a cutting-edge tool designed to revolutionize the assessment process of viva voce examinations. Utilizing advanced algorithms and artificial intelligence, it aims to automate the evaluation of student performances during viva sessions.</p>
+    </section>
+    <section style="background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+      <h2><i class="icon fas fa-rocket"></i>Features</h2>
+      <ul>
+        <li><i class="icon fas fa-check"></i>Real-time analysis of student responses</li>
+        <li><i class="icon fas fa-check"></i>AI-based scoring and feedback generation</li>
+        <li><i class="icon fas fa-check"></i>Customizable evaluation criteria</li>
+        <li><i class="icon fas fa-check"></i>Integration with learning management systems</li>
+        <li><i class="icon fas fa-check"></i>Multi-platform compatibility</li>
+      </ul>
+    </section>
+    <section style="background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+      <h2><i class="icon fas fa-star"></i>Benefits</h2>
+      <ul>
+        <li><i class="icon fas fa-check"></i>Efficient and accurate assessment process</li>
+        <li><i class="icon fas fa-check"></i>Reduced workload for examiners</li>
+        <li><i class="icon fas fa-check"></i>Enhanced objectivity and consistency in evaluations</li>
+        <li><i class="icon fas fa-check"></i>Improved student engagement and satisfaction</li>
+        <li><i class="icon fas fa-check"></i>Time-saving and cost-effective solution</li>
+      </ul>
+    </section>
+    <section style="background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+      <h2><i class="icon fas fa-lightbulb"></i>Conclusion</h2>
+      <p>The automatic viva evaluation software represents a significant advancement in assessment technology, offering a reliable and efficient solution for academic institutions. By leveraging the power of automation and artificial intelligence, it aims to elevate the standard of viva examinations and contribute to the continuous improvement of education.</p>
+    </section>
+  </main>
+
+
+  
+</body>
+</html>

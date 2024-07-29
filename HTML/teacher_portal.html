@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionnaire Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #5e5b5b;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         /* Add scrollbar when content overflows */
+         overflow: hidden;
+
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        margin-top: 20px;
+        padding-right: 20px; /* Add right padding to prevent horizontal scrollbar */
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type="text"]:disabled,
+    input[type="number"]:disabled {
+        background-color: #eee;
+    }
+
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        display: block;
+        margin: 0 auto; /* Center align submit button */
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+  
+
+    nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            height: 70px;
+            width: 100%;
+            background-color: rgba(0, 123, 255, 0.8); /* Transparent blue */
+            z-index: 100;
+        }
+        nav .nav-bar {
+            position: relative;
+            height: 100%;
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(0, 123, 255, 0.8); /* Transparent blue */
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav .nav-bar .sidebarOpen {
+            color: #fff;
+            font-size: 25px;
+            padding: 5px;
+            cursor: pointer;
+            display: none;
+        }
+        nav .nav-bar .logo a {
+            font-size: 25px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+        }
+        .menu .logo-toggle {
+            display: none;
+        }
+        .nav-bar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .nav-bar .nav-links li {
+            margin: 0 5px;
+            list-style: none;
+        }
+        .nav-links li a {
+            position: relative;
+            font-size: 17px;
+            font-weight: 400;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .nav-links li a::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background-color: #fff;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .nav-links li:hover a::before {
+            opacity: 1;
+        }
+
+
+
+        
+ img
+{
+
+width: 10%;
+height: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+
+}
+
+
+#v
+{
+    position: absolute;
+    left: 350px;
+    font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2.3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(1, 149, 67, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="#"><img src="1c.png" alt=""></a></span> 
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">CodingLab</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="demo.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="search.php"><i class="fas fa-table"></i> Gread Sheet</a></li>
+                    <li id="v">VIVA-EVAL </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+   
+
+<center>
+<h2>...Add a Question's and Answer's Here...</h2></center>
+
+    
+
+<div class="container">
+   
+    <form action="teacher_question.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" name="branch" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="num_questions">Number of Questions:</label>
+        <input type="number" id="num_questions" name="num_questions" value="10" disabled>
+
+        <label for="q1">Question 1:</label>
+        <input type="text" id="q1" name="q1" required>
+
+        <label for="a1">Answer 1:</label>
+        <input type="text" id="a1" name="a1" required>
+
+
+        <label for="q2">Question 2:</label>
+        <input type="text" id="q2" name="q2" required>
+
+        <label for="a2">Answer 2:</label>
+        <input type="text" id="a2" name="a2" required>
+
+
+        <label for="q3">Question 3:</label>
+        <input type="text" id="q3" name="q3" required>
+
+        <label for="a3">Answer 3:</label>
+        <input type="text" id="a3" name="a3" required>
+
+
+        <label for="q4">Question 4:</label>
+        <input type="text" id="q4" name="q4" required>
+
+        <label for="a4">Answer 4:</label>
+        <input type="text" id="a4" name="a4" required>
+
+
+        <label for="q5">Question 5:</label>
+        <input type="text" id="q5" name="q5" required>
+
+        <label for="a5">Answer 5:</label>
+        <input type="text" id="a5" name="a5" required>
+
+
+        <label for="q6">Question 6:</label>
+        <input type="text" id="q6" name="q6" required>
+
+        <label for="a6">Answer 6:</label>
+        <input type="text" id="a6" name="a6" required>
+
+
+        <label for="q7">Question 7:</label>
+        <input type="text" id="q7" name="q7" required>
+
+        <label for="a7">Answer 7:</label>
+        <input type="text" id="a7" name="a7" required>
+
+
+        <label for="q8">Question 8:</label>
+        <input type="text" id="q8" name="q8" required>
+
+        <label for="a8">Answer 8:</label>
+        <input type="text" id="a8" name="a8" required>
+
+
+        <label for="q9">Question 9:</label>
+        <input type="text" id="q9" name="q9" required>
+
+        <label for="a9">Answer 9:</label>
+        <input type="text" id="a9" name="a9" required>
+
+
+        <label for="q10">Question 10:</label>
+        <input type="text" id="q10" name="q10" required>
+
+        <label for="a10">Answer 10:</label>
+        <input type="text" id="a10" name="a10" required>
+
+        
+
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
